@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enfant reveur 관리자 페이지</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="login" id="login">
+        <p id="email">아이디: <input type='email' id="email_value"></p>
+        <p id="password">비밀번호: <input type='password' id='password_value'></p>
+        <button id="go_login">로그인</button>
+    </div>
+    <div class="afterpage" id="afterpage">
+        <div class="write">
+            <p id="title">제목: <input type="text" id='title_value'></p>
+            <p id="author">작성자: <input type="text" id='author_value'></p>
+            <textarea id="content"></textarea>
+        </div>
+        <input type="file" id="fileInput" multiple>
+        <button id="img_up">Upload</button>
+        <p id="stat"></p>
+
+        <p>※꼭 Upload 버튼을 누르고 등록 버튼을 눌러주세요!!!</p>
+        <button id="upload">등록</button>
+    </div>
+</body>
+<script type="module" src='./script.mjs'></script>
+</html>

@@ -74,18 +74,6 @@ if (docSnap.exists()) {
     for (var i = 0; i < (data.images).length; i++) {
       getDownloadURL(ref(storage, data.images[i]))
         .then((url) => {
-          // `url` is the download URL for 'images/stars.jpg'
-
-          // This can be downloaded directly:
-          // const xhr = new XMLHttpRequest();
-          // xhr.responseType = 'blob';
-          // xhr.onload = (event) => {
-          //   const blob = xhr.response;
-          // };
-          // xhr.open('GET', url);
-          // xhr.send();
-
-          // Or inserted into an <img> element
           const img = document.createElement('img');
           img.src = url;
           console.log(url)
@@ -106,4 +94,5 @@ if (docSnap.exists()) {
   }
 } else {
   alert('해당 문서를 찾을 수 없습니다.')
+  
 }
