@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+body{
+    margin:0px;
+    padding:0px;
+}
+h1,h2,h3,h4,p,a,span{
+    padding:0px;
+    margin:0px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width:100vw;
+    justify-content: space-between;
+    height: 100px;
+    background-color: white;
+    transition: .25s ease-in-out;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.04), 0 2px 3px 0 rgba(0,0,0,.12);
+    z-index: 1000;
+}
+.headers_icon{
+    margin-right: 50px;
+}
+.headers_icon img{
+    width:50px;
+}
+.scroll{
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    transition: .25s ease-in-out;
+    height:70px;
+}
+#menu{
+    background-color: #009591;
+    width:1000px;
+    height:100vh;
+    position: fixed;
+    right:-100vw;
+    transition: .5s ease-in-out;
+    border-radius: 5px 0px 0px 5px;
+    z-index: 1200;
+}
+#close{
+    text-align: right;
+    margin-top:20px
+}
+#menu_close_btn{
+    cursor: pointer;
+    width:50px;
+    margin-right: 50px;
+}
+#logo{
+    margin-left: 50px;
+}
+#logo a{
+    text-decoration: none;
+    color:black;
+    font-size:30px;
+    font-family: 'NanumSquareBold';
+}
+.content_box{
+    padding-top:100px;
+}
+.footer_box{
+    background-color: rgb(180, 180, 180);
+    padding:20px 0px 30px;
+}
+.footer_box > div{
+    display: flex;
+    justify-content: center;
+}
+.footer_left{
+    width:40%;
+}
+.footer_right{
+    width:30%;
+}
+.footer_right a{
+    color:black;
+}
+@media screen and (max-width : 1000px) {
+    #menu{
+        border-radius: 0px;
+        width:100vw;
+    }
+    .content-box{
+        padding-top:200px;
+    }
+}
+@media screen and (max-width : 800px) {
+    .footer_left{
+        width:50%;
+    }
+    .footer_right{
+        width:40%;
+    }
+    .content-box{
+        padding-top:200px;
+    }
+}
+@media screen and (max-width : 600px) {
+    .footer_box > div{
+        justify-content: center;
+        flex-direction: column;
+        width:80%;
+        margin:auto;
+    }
+    .footer_left, .footer_right{
+        width:100%;
+    }
+    .content-box{
+        padding-top:200px;
+    }
+}
