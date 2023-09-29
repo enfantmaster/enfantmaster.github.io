@@ -71,23 +71,23 @@ if (docSnap.exists()) {
 
     const storage = getStorage();
     const imgElement = document.createElement('div')
-    for (var i = 0; i < (data.images).length; i++) {
-      getDownloadURL(ref(storage, data.images[i]))
-        .then((url) => {
-          const img = document.createElement('img');
-          img.src = url;
-          console.log(url)
-          imgElement.appendChild(img)
-        })
-        .catch((error) => {
-          // Handle any errors
-        });
-      info_container.append(imgElement);
-
-
-      const view_data = doc(db, 'announcement', id);
-      updateDoc(view_data, { view: view_num + 1 });
+    if((data.images).length != 0){
+      for (var i = 0; i < (data.images).length; i++) {
+        getDownloadURL(ref(storage, data.images[i]))
+          .then((url) => {
+            const img = document.createElement('img');
+            img.src = url;
+            console.log(url)
+            imgElement.appendChild(img)
+          })
+          .catch((error) => {
+            // Handle any errors
+          });
+        info_container.append(imgElement);
+      }
     }
+    const view_data = doc(db, 'announcement', id);
+    updateDoc(view_data, { view: view_num + 1 });
   }
   else{
     document.getElementById('view_box_top_title').textContent = '삭제되었거나 볼 수 없는 게시글입니다.';
