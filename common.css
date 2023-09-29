@@ -89,9 +89,14 @@ a:hover{
     color:black;
 }
 #menu_content{
-    overflow-y: auto;
     font-family: "NanumSquare";
     padding:10px 30px;
+    overflow-y: auto;
+    max-height: 80%;
+    -ms-overflow-style: none;
+}
+#menu_content::-webkit-scrollbar{
+    display:none;
 }
 #menu_content li{
     list-style:none;
