@@ -9,7 +9,7 @@ const firebaseConfig = {
     measurementId: "G-R8JVLC43SZ"
 };
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { collection, getDocs, getFirestore, setDoc,doc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { collection, getDocs, getFirestore, setDoc,doc,updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 function generateRandomKey(length) {
     const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -109,4 +109,21 @@ document.getElementById('upload').addEventListener('click', function () {
 })
 document.getElementById('img_up').addEventListener("click", function () {
     uploadFiles()
+})
+document.getElementById('go_delete').addEventListener("click", async function(){
+    var del = confirm(`정말 삭제하시겠습니까?`)
+    if(del){
+        if(user_key){
+            var del_id = document.getElementById('delete_val').value;
+            try{
+                const view_data = doc(db, 'announcement', del_id);
+                updateDoc(view_data, { display:false });
+            }catch(error){
+                alert('삭제에 실패했습니다. ID를 다시한번 확인해주세요')
+                console.log(error)
+            }
+        }else{
+            alert('로그인 필요')
+        }
+    }
 })

@@ -1,3 +1,15 @@
-#afterpage{
+/* #afterpage{
     display: none;
+} */
+.write, .delete{
+    border:1px solid black;
+    padding:5px;
+    margin:10px;
+}
+h2{
+    margin:5px 0px;
+}
+.write textarea{
+    min-width:50%;
+    min-height:100px;
 }

@@ -29,6 +29,9 @@ a:hover{
 .headers_icon{
     margin-right: 50px;
 }
+#menu_open_btn{
+    cursor: pointer;
+}
 .headers_icon img{
     width:50px;
 }
@@ -38,8 +41,8 @@ a:hover{
     height:70px;
 }
 #menu{
-    background-color: #009591;
-    width:1000px;
+    background-color: #c0e7e6;
+    width:500px;
     height:100vh;
     position: fixed;
     right:-100vw;
@@ -85,10 +88,36 @@ a:hover{
 .footer_right a{
     color:black;
 }
+#menu_content{
+    overflow-y: auto;
+    font-family: "NanumSquare";
+    padding:10px 30px;
+}
+#menu_content li{
+    list-style:none;
+    margin:3px 0px;
+    transition: 0.2s;
+}
+#menu_content li a{
+    text-decoration: none;
+    color:black;
+}
+#menu_content li:hover{
+    transform: translateX(10px);
+}
+.menu_content_box ul{
+    margin:5px 0px 15px;
+    padding:0px 10px 5px;
+    font-size:20px;
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+.menu_content_box h3{
+    font-size:30px;
+}
 @media screen and (max-width : 1000px) {
     #menu{
         border-radius: 0px;
-        width:100vw;
+        width:70vw;
     }
     .content-box{
         padding-top:200px;
