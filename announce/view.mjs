@@ -57,8 +57,8 @@ if (docSnap.exists()) {
     document.getElementById('view_box_top_title').textContent = data.title;
     document.getElementById('author_name').textContent = data.author;
     document.getElementById('pressTime').textContent = timestampToDateTime((data.pressTime).seconds);
-    document.getElementById('view').textContent = '조회수: ' + parseInt(data.view);
     view_num = parseInt(data.view);
+    document.getElementById('view').textContent = '조회수: ' + (view_num+1);
     const info_container = document.getElementById('view_content_box');
     const divElement = document.createElement('div');
     for (var i = 0; i < (data.content).length; i++) {
