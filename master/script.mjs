@@ -68,13 +68,6 @@ document.getElementById('go_login').addEventListener("click", async function () 
             user_key = userCredential.user.uid;
             console.log(user_key);
             document.getElementById('afterpage').style = 'display:block;'
-            const querySnapshot = await getDocs(collection(db, "announcement"));
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                var data = doc.data();
-                last_id = data.id;
-            });
-            last_id += 1;
             document.getElementById('login').style='display:none;'
         })
         .catch((error) => {
@@ -85,7 +78,23 @@ document.getElementById('go_login').addEventListener("click", async function () 
 
 
 })
-document.getElementById('upload').addEventListener('click', function () {
+document.getElementById('upload').addEventListener('click', async function () {
+    const querySnapshot = await getDocs(collection(db, "announcement"));
+    const data_list = []
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        var data = doc.data();
+        data_list.push(data)
+    });
+    data_list.sort(function(a,b){
+        return a.id - b.id;
+    })
+    for(var i = 0; i<data_list.length; i++){
+        last_id = data_list[i].id
+    }
+    console.log(last_id)
+    last_id += 1;
+    console.log(last_id)
     var text = document.getElementById('content').value;
 
     console.log(text)

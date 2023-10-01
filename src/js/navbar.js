@@ -12,5 +12,10 @@ document.getElementById('menu_open_btn').addEventListener("click", function(){
     document.getElementById('menu').style='right:0px;'
 })
 document.getElementById('menu_close_btn').addEventListener("click", function(){
-    document.getElementById('menu').style='right:-100vw;'
+    var w = window.innerWidth;
+    if(w > 1000){
+        document.getElementById('menu').style='right:-700px;'
+    }else{
+        document.getElementById('menu').style='right:-70vw;'
+    }
 })
