@@ -97,7 +97,14 @@ document.getElementById('upload').addEventListener('click', async function () {
     console.log(last_id)
     var text = document.getElementById('content').value;
 
-    console.log(text)
+    console.log(text);
+    var selectedValue = document.querySelector('input[name="important"]:checked').value;
+    var importance
+    if(selectedValue == 'true'){
+        importance = true;
+    }else{
+        importance = false;
+    }
     const lines = text.split('\n');
     console.log(lines); // 줄바꿈을 기준으로 분할된 문자열 배열
     if(user_key){
@@ -110,8 +117,12 @@ document.getElementById('upload').addEventListener('click', async function () {
             content: lines,
             images: images,
             view: 0,
-            display: true
+            display: true,
+            important: importance
         });
+        setTimeout(function(){
+            alert('등록되었습니다.')
+        },2000)
     }else{
         alert('로그인 필요')
     }

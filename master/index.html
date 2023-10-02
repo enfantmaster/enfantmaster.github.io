@@ -17,6 +17,12 @@
             <h2>신규 게시글 등록하기</h2>
             <p id="title">제목: <input type="text" id='title_value'></p>
             <p id="author">작성자: <input type="text" id='author_value'></p>
+            <form>
+                <fieldset>
+                    <input type="radio" name="important" checked="checked" value='false'>[공지]로 등록하지 않음
+                    <input type="radio" name="important" value='true'>[공지]로 등록하기
+                </fieldset>
+            </form><br>
             <textarea id="content"></textarea><br>
             <span>사진 업로드: </span>
             <input type="file" id="fileInput" multiple>

@@ -45,6 +45,15 @@ querySnapshot.forEach((doc) => {
 data_list.sort(function (a, b) {
     return a.id - b.id;
 })
+data_list.sort(function(a,b){
+    if(a.important && !b.important){
+        return 1;
+    }else if(!a.important && b.important){
+        return -1;
+    }else{
+        return 0;
+    }
+})
 var revdata = data_list.slice().reverse();
 // console.log(revdata);
 const filteredData = revdata.filter(item => item.display === true);
@@ -67,7 +76,7 @@ function displayData() {
     }
     for (var i = 0; i < currentData.length; i++) {
         const divElement = document.createElement('div');
-        divElement.className = 'table_garo'
+        divElement.className = 'table_garo';
 
         const id = document.createElement('p');
         id.textContent = currentData[i].id;
@@ -75,7 +84,12 @@ function displayData() {
         divElement.appendChild(id);
 
         const title = document.createElement('a');
-        title.textContent = currentData[i].title;
+        if(currentData[i].important == true){
+            divElement.classList.add('important')
+            title.textContent = '[공지] '+currentData[i].title;
+        }else{
+            title.textContent = currentData[i].title;
+        }
         title.className = 'title';
         title.href = `./view.html?id=${currentData[i].id}`
         divElement.appendChild(title);
@@ -97,13 +111,19 @@ function displayData() {
 
         info_container.append(divElement);
 
+        //모바일
+
         const mobileElement = document.createElement('div');
         mobileElement.className = 'mobile_garo';
         const moblink = document.createElement('a')
         moblink.href = './view.html?id=' + currentData[i].id
 
-        const mob_title = document.createElement('h4');
-        mob_title.textContent = currentData[i].title;
+        const mob_title = document.createElement('h4');if(currentData[i].important == true){
+            mobileElement.classList.add('important')
+            mob_title.textContent = '[공지] '+currentData[i].title;
+        }else{
+            mob_title   .textContent = currentData[i].title;
+        }
         mob_title.className = 'mob_title';
         moblink.appendChild(mob_title);
 

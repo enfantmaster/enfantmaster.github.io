@@ -127,6 +127,9 @@ body{
     padding:5px;
     border-radius: 5px;
 }
+.important{
+    background-color: rgb(246, 142, 142);
+}
 @media screen and (max-width : 1000px) {
     .view_box{
         width:80%;
@@ -176,6 +179,6 @@ body{
     }
     .mobile_garo{
         border-bottom: 1px solid black;
-        padding: 5px 0px;
+        padding: 5px;
     }
 }
