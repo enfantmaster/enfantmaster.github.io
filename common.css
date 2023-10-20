@@ -62,11 +62,12 @@ a:hover{
 #logo{
     margin-left: 50px;
 }
-#logo a{
-    text-decoration: none;
-    color:black;
-    font-size:30px;
-    font-family: 'NanumSquareBold';
+#logo div{
+    display: flex;
+}
+#logo img{
+    height:70px;
+    overflow: hidden;
 }
 .content_box{
     padding-top:100px;
@@ -81,6 +82,9 @@ a:hover{
 }
 .footer_left{
     width:40%;
+}
+.footer_img img{
+    height:60px;
 }
 .footer_right{
     width:30%;
@@ -152,5 +156,8 @@ a:hover{
     }
     .content-box{
         padding-top:200px;
+    }
+    #logo{
+        margin-left: 20px;
     }
 }
