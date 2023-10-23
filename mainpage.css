@@ -38,13 +38,68 @@
 .content_box{
     padding-top:50px;
 }
+.bg_lightgray, .bg_white{
+    transform: skewY(-5deg);
+    padding: 50px 0px 70px;
+}
+.bg_lightgray > div, .bg_white > div{
+    transform: skewY(5deg);
+}
+.bg_white{
+    background-color: white;
+}
+.bg_lightgray{
+    background: #e3e8e8;
+}
+.main_container{
+    margin: 50px 0px 65px 0px;
+}
+.container_box_center, .container_box_left{
+    width:80%;
+    margin:auto;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.container_box_center h1{
+    text-align: center;
+    font-size:40px;
+}
+.container_box_left h1{
+    font-size:40px;
+    text-align: left;
+}
+.main_container p{
+    font-size: 20px;
+    padding:5px 0px;
+}
+.container_box_center_content{
+    width:90%;
+    margin:auto;
+    margin-top: 40px;
+}
+@media screen and (max-width : 1280px) {
+    .main_container{
+        margin: 43px 0px 55px 0px;
+    }
+}
+@media screen and (max-width : 1000px) {
+    .main_container{
+        margin: 30px 0px 44px 0px;
+    }
+}
 @media screen and (max-width : 800px) {
     .inner img{
         height: 750px;
+    }
+    .main_container{
+        margin: 20px 0px 34px 0px;
     }
 }
 @media screen and (max-width : 600px) {
     .inner img{
         height: 550px;
+    }
+    .main_container{
+        margin: 11px 0px 25px 0px;
     }
 }

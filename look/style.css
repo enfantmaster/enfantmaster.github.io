@@ -16,7 +16,9 @@
 .way{
     display: flex;
     margin-top: 10px;
-    justify-content: space-around;
+}
+.way div{
+    width:50%;
 }
 .address{
     font-size:20px;
@@ -41,6 +43,9 @@
     .way {
         display: flex;
         flex-direction: column;
+    }
+    .way div{
+        width:100%;
     }
 }
 @media screen and (max-width : 600px) {
