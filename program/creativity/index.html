@@ -7,6 +7,8 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <link href="../../common.css" rel="stylesheet">
     <link href="../style.css" rel="stylesheet">
+    <link href="../../inside_style.css" rel="stylesheet">
+    <script src="../../src/js/pagelink.js"></script>
 </head>
 <body>
     <div class="header_box">
@@ -84,33 +86,58 @@
         </div>
     </div>
     <div class="content_box">
-        <div class="map_box">
-            <!-- * 카카오맵 - 지도퍼가기 -->
-            <!-- 1. 지도 노드 -->
-            <div id="daumRoughmapContainer1695985484034" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-            
-            <!--
-                2. 설치 스크립트
-                * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
-            -->
-            <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-            
-            <!-- 3. 실행 스크립트 -->
-            <script charset="UTF-8">
-                new daum.roughmap.Lander({
-                    "timestamp" : "1695985484034",
-                    "key" : "2gc8v",
-                    "mapWidth" : "",
-                    "mapHeight" : "360"
-                }).render();
-            </script>
-            <div id="map_info">
-                <div class="address">
-                    <div class="map_info_cont"><img class="loc_img" src="../../src/images/map/location_on_FILL0_wght400_GRAD0_opsz24.svg" ><p>서울 영등포구 여의대방로68길 15 (영창빌딩 6층)<span id="parking">※주차 불가, 대중교통 이용 바랍니다.</span></p></div>
+        <div class="content_title">
+            <h1>창의사고력</h1>
+        </div>
+        <div class="content">
+            <div class="link">
+                <a class="link_box" href='#' data-target="gabe">
+                    가베
+                </a>
+                <a class="link_box" href='#' data-target="coding">
+                    코딩
+                </a>
+                <a class="link_box" href='#' data-target="playfacto">
+                    플레이팩토
+                </a>
+                <a class="link_box" href='#' data-target="art">
+                    미술
+                </a>
+            </div>
+            <div class="content_inside" id="gabe">
+                <h1 class="content_inside_title">
+                    가베
+                </h1>
+                <div>
+                    <h2>무언가</h2>
+                    <p>여기에 이렇게 무언가가 들어갑니다.</p>
                 </div>
-                <div class="way">
-                    <div class="map_info_cont"><img class="loc_img" src="../../src/images/map/subway_FILL0_wght400_GRAD0_opsz24.svg" ><p><span>지하철</span>샛강역 3번 출구에서 도보 약 6분</p></div>
-                    <div class="map_info_cont"><img class="loc_img" src="../../src/images/map/bus_alert_FILL0_wght400_GRAD0_opsz24.svg" ><p><span>버스</span>여의동주민센터, 진주아파트에서 하차</p></div>
+            </div>
+            <div class="content_inside" id="coding">
+                <h1 class="content_inside_title">
+                    코딩
+                </h1>
+                <div>
+                    <h2>무언가</h2>
+                    <p>여기에 이렇게 무언가가 들어갑니다.</p>
+                </div>
+            </div>
+            <div class="content_inside" id="playfacto">
+                <h1 class="content_inside_title">
+                    플레이팩토
+                </h1>
+                <div>
+                    <h2>무언가</h2>
+                    <p>여기에 이렇게 무언가가 들어갑니다.</p>
+                </div>
+            </div>
+            <div class="content_inside" id="art">
+                <h1 class="content_inside_title">
+                    미술
+                </h1>
+                <div>
+                    <h2>무언가</h2>
+                    <p>여기에 이렇게 무언가가 들어갑니다.</p>
                 </div>
             </div>
         </div>

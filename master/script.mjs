@@ -10,7 +10,7 @@ const firebaseConfig = {
 };
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { collection, getDocs, getFirestore, setDoc,doc,updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+import { getStorage, ref, uploadBytes, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 function generateRandomKey(length) {
     const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let randomKey = "";
@@ -49,7 +49,7 @@ function uploadFiles() {
             })
             .catch((error) => {
                 console.error(`파일 업로드 오류 (${i + 1}): ${error.message}`);
-            });
+            }); 
     }
 }
 
