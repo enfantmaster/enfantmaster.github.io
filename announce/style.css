@@ -192,4 +192,7 @@ body{
     .mobile_garo:nth-child(1){
         border-top: 1px solid black;
     }
+    .mobile_garo a:hover{
+        text-decoration: none;
+    }
 }
