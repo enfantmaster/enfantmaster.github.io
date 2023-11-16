@@ -91,7 +91,7 @@ function displayData() {
             title.textContent = currentData[i].title;
         }
         title.className = 'title';
-        title.href = `./view.html?id=${currentData[i].id}`
+        title.href = `./view/?id=${currentData[i].id}`
         divElement.appendChild(title);
 
         const author = document.createElement('p');

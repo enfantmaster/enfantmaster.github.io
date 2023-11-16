@@ -6,14 +6,13 @@
     <title>enfant rêveur</title>
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <link href="../../common.css" rel="stylesheet">
-    <link href="../../inside_style.css" rel="stylesheet">
-    <!-- <link href="./style.css" rel="stylesheet"> -->
+    <link href="../style.css" rel="stylesheet">
 </head>
 <body>
     <div class="header_box">
         <nav class="navbar" id="navbar">
             <div id="logo">
-                <a href="../../">
+                <a href="../">
                     <div>
                         <img src="../../src/logo/logo_left.png">
                         <img src="../../src/logo/logo_right.png">
@@ -76,7 +75,7 @@
                     <div>
                         <ul>
                             <li>
-                                <a href="../../announce/">공지사항</a>
+                                <a href="../">공지사항</a>
                             </li>
                         </ul>
                     </div>
@@ -85,10 +84,27 @@
         </div>
     </div>
     <div class="content_box">
-        <div class="content_title">
-            <h1>이메일 무단수집 거부</h1>
+        <div class="view_box">
+            <div class="view_box_top">
+                <h1 id="view_box_top_title"></h1>
+                <div class="view_box_top_info">
+                    <div class="view_box_top_author">
+                        <img src="../../src/images/profile_unknown.png" id="author_img">
+                        <p id="author_name"></p>
+                    </div>
+                    <div class="pressTime_box">
+                        <p id="pressTime"></p>
+                        <p id="view"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="view_content_box">
+                
+            </div>
         </div>
-        <p style="padding:0px 15%; font-size:20px; margin:0px 0px 20px 0px;">본 웹사이트에 게시된 <span style="text-decoration: underline;">이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부</span>하며,<br>이를 <span style='color:red'>위반시 정보통신망법에 의해 형사 처벌</span>됨을 유념하시기 바랍니다.</p>
+        <div class="link_btn">
+            <a id="go_to_announce" href="../">< 게시판으로 가기</a>
+        </div>
     </div>
     <div class="footer_box">
         <div>
@@ -103,11 +119,12 @@
             <div class="footer_right">
                 <a href="tel:000-0000-0000">Tel: 000-0000-0000</a><br>
                 <a href="mailto:enfantmaster@gmail.com">e-mail: enfantmaster@gmail.com</a><br>
-                <a href="./">이메일 무단수집 거부</a>
+                <a href="#">이메일 무단수집 거부</a>
             </div>
         </div>
         <p style="text-align: center; margin-top: 20px;">Copyright 2023. enfant rêveur all right reserved.</p>
     </div>
 </body>
+<script src="./view.mjs" type="module"></script>
 <script src="../../src/js/navbar.js"></script>
-</html> 
+</html>
