@@ -77,6 +77,15 @@
     margin:auto;
     margin-top: 40px;
 }
+.link_go{
+    background-color: #819698;
+    padding:15px 45px;
+    border-radius: 20px;
+    color:white;
+}
+.link_go:hover{
+    text-decoration: none;
+}
 @media screen and (max-width : 1280px) {
     .main_container{
         margin: 43px 0px 55px 0px;
