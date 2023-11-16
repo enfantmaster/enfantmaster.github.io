@@ -36,7 +36,7 @@
     padding: 20px 15%;
 }
 .content_inside:nth-child(2n){
-    background-color: rgb(224, 224, 224);
+    background-color: #e3e8e8;
 }
 .content_inside_title{
     text-align: right;
@@ -60,6 +60,12 @@
 }
 .facility_image_box img:hover{
     cursor: pointer;
+}
+.content_inside h2{
+    padding-top:5px;
+}
+.content_inside p{
+    padding:2px 0px;
 }
 @media screen and (max-width : 900px) {
     .facility_image_box img{

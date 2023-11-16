@@ -77,10 +77,13 @@
     margin:auto;
     margin-top: 40px;
 }
+.container_box_left_content{
+    margin-top: 40px;
+}
 .link_go{
     background-color: #819698;
     padding:15px 45px;
-    border-radius: 20px;
+    border-radius: 30px;
     color:white;
 }
 .link_go:hover{
