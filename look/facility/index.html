@@ -7,6 +7,8 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <link href="../../common.css" rel="stylesheet">
     <link href="../style.css" rel="stylesheet">
+    <link href="../../inside_style.css" rel="stylesheet">
+    <script src="../../src/js/pagelink.js"></script>
 </head>
 <body>
     <div class="header_box">
@@ -84,7 +86,30 @@
         </div>
     </div>
     <div class="content_box">
-        
+        <div class="content_title">
+            <h1>시설</h1>
+        </div>
+        <div class="content">
+            <div class="link">
+                <a class="link_box" href='#' data-target="lookat">
+                    시설 둘러보기
+                </a>
+            </div>
+            <div class="content_inside" id="lookat">
+                <h1 class="content_inside_title">
+                    시설 둘러보기
+                </h1>
+                <div>
+                    <p>클릭하면 이미지가 확대됩니다.</p>
+                    <div class="facility_image_box">
+                        <img title='클릭하면 이미지가 확대됩니다.' src="./src/images/image1.jpg" alt="교실사진" onclick="window.open(this.src)">
+                        <img title='클릭하면 이미지가 확대됩니다.' src="./src/images/image2.jpg" alt="교실사진" onclick="window.open(this.src)">
+                        <img title='클릭하면 이미지가 확대됩니다.' src="./src/images/image3.jpg" alt="교실사진" onclick="window.open(this.src)">
+                        <img title='클릭하면 이미지가 확대됩니다.' src="./src/images/image4.jpg" alt="교실사진" onclick="window.open(this.src)">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="footer_box">
         <div>

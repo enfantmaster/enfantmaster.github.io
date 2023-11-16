@@ -48,3 +48,26 @@
 .content_inside div{
     padding:5px 0px;
 }
+.facility_image_box{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.facility_image_box img{
+    width:48%;
+    border:3px white solid;
+    margin: 5px 0px;
+}
+.facility_image_box img:hover{
+    cursor: pointer;
+}
+@media screen and (max-width : 900px) {
+    .facility_image_box img{
+        width:100%;
+    }
+    .facility_image_box{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
