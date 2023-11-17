@@ -116,7 +116,7 @@ function displayData() {
         const mobileElement = document.createElement('div');
         mobileElement.className = 'mobile_garo';
         const moblink = document.createElement('a')
-        moblink.href = './view.html?id=' + currentData[i].id
+        moblink.href = './view/?id=' + currentData[i].id
 
         const mob_title = document.createElement('h4');if(currentData[i].important == true){
             mobileElement.classList.add('important')
