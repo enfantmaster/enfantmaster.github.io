@@ -67,6 +67,12 @@
 .content_inside p{
     padding:2px 0px;
 }
+.intro_content_box p{
+    font-size:18px;
+}
+.intro_content_box h2{
+    margin-top:10px;
+}
 @media screen and (max-width : 900px) {
     .facility_image_box img{
         width:100%;
