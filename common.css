@@ -12,6 +12,7 @@ body{
     margin:0px;
     padding:0px;
     font-family: 'Pretendard-Regular';
+    word-break: keep-all;
 }
 h1,h2,h3,h4,p,a,span{
     padding:0px;
@@ -144,7 +145,23 @@ a:hover{
     text-decoration: none;
     margin: 0px 5px;
 }
+.sns_icons div{
+    display: flex;
+}
 .sns_icons a{
+    text-decoration: none;
+    transition: .5s;
+}
+.sns_icons > div{
+    margin-top: 10px;
+}
+.sns_icons > div > a{
+    display: flex;
+    align-items: flex-end;
+}
+.sns_icons a:hover{
+    transform: scale(1.01);
+    transition: .5s;
     text-decoration: none;
 }
 .sns_icons img:hover{
@@ -179,6 +196,14 @@ a:hover{
         flex-direction: column;
         width:80%;
         margin:auto;
+    }
+    .footer_img{
+        margin:20px 0px;
+        display: flex;
+        justify-content: center;
+    }
+    .footer_right{
+        margin-top:10px;
     }
     .footer_left, .footer_right{
         width:100%;
