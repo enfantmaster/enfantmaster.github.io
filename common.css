@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -17,6 +18,9 @@ body{
 h1,h2,h3,h4,p,a,span{
     padding:0px;
     margin:0px;
+}
+h1, h2{
+    font-family: 'NanumSquareNeoExtraBold';
 }
 a{
     text-decoration: none;
@@ -213,5 +217,11 @@ a:hover{
     }
     #logo{
         margin-left: 20px;
+    }
+    .headers_icon{
+        margin-right: 23px;
+    }
+    #menu_close_btn{
+        margin-right: 20px;
     }
 }
