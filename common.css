@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
-@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -162,7 +164,7 @@ a:hover{
 }
 .sns_icons > div > a{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 .sns_icons a:hover{
     transform: scale(1.01);
@@ -173,6 +175,17 @@ a:hover{
     transform: scale(1.05);
     transition: .5s;
     text-decoration: none;
+}
+.agreement > div > a > img{
+    width:25px;
+}
+.agreement{
+    display: flex;
+    flex-wrap: wrap;
+}
+.agreement > div > a{
+    display: flex;
+    align-items: center;
 }
 @media screen and (max-width : 1000px) {
     #menu{
@@ -224,5 +237,8 @@ a:hover{
     }
     #menu_close_btn{
         margin-right: 20px;
+    }
+    .agreement> div:nth-child(n+2){
+        margin-top:8px;
     }
 }

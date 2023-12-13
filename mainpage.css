@@ -100,22 +100,22 @@
 }
 @media screen and (max-width : 2500px) {
     .main_container{
-        margin: 100px 0px 55px 0px;
+        margin: 100px 0px 110px 0px;
     }
 }
 @media screen and (max-width : 2300px) {
     .main_container{
-        margin: 90px 0px 55px 0px;
+        margin: 90px 0px 95px 0px;
     }
 }
 @media screen and (max-width : 2100px) {
     .main_container{
-        margin: 80px 0px 55px 0px;
+        margin: 80px 0px 80px 0px;
     }
 }
 @media screen and (max-width : 1700px) {
     .main_container{
-        margin: 60px 0px 55px 0px;
+        margin: 60px 0px 68px 0px;
     }
 }
 @media screen and (max-width : 1280px) {
