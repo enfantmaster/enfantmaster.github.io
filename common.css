@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
-
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -20,7 +20,8 @@ h1,h2,h3,h4,p,a,span{
     margin:0px;
 }
 h1, h2{
-    font-family: 'NanumSquareNeoExtraBold';
+    font-family: 'NanumSquare';
+    font-weight: 800;
 }
 a{
     text-decoration: none;
