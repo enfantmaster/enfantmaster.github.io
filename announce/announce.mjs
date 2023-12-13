@@ -42,6 +42,12 @@ querySnapshot.forEach((doc) => {
     var data = doc.data();
     data_list.push(data)
 });
+if(data_list.length == 0){
+    document.getElementById('no_announce').style='display:block;'
+}
+if(data_list.length >= 10){
+    document.getElementById('pagination').style='display:block;'
+}
 data_list.sort(function (a, b) {
     return a.id - b.id;
 })
@@ -139,7 +145,7 @@ function displayData() {
         mob_info.appendChild(mob_pressTime);
 
         const mob_view = document.createElement('p');
-        mob_view.textContent = currentData[i].view;
+        mob_view.textContent = '조회: '+currentData[i].view;
         mob_view.className = 'mob_view';
         mob_info.appendChild(mob_view);
 

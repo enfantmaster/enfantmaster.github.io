@@ -37,14 +37,16 @@ function uploadFiles() {
         const key = generateRandomKey(7);
         const storageRef = ref(storage, key);
         images.push(key);
-
+        console.log(file.name);
+        var text = ''
         // 파일 업로드
         uploadBytes(storageRef, file)
             .then((snapshot) => {
                 console.log(`Uploaded file ${i + 1}: ${key}`);
                 if (images.length === files.length) {
                     // 모든 파일이 업로드되면 추가 작업 수행
-                    document.getElementById('stat').textContent = `${i+1}번째 파일의 업로드가 완료됨.`
+                    text += `${i+1}번째 파일(${file.name})의 업로드가 완료됨.\n` 
+                    document.getElementById('stat').textContent = text;
                 }
             })
             .catch((error) => {
@@ -89,8 +91,12 @@ document.getElementById('upload').addEventListener('click', async function () {
     data_list.sort(function(a,b){
         return a.id - b.id;
     })
-    for(var i = 0; i<data_list.length; i++){
-        last_id = data_list[i].id
+    if(data_list.length==0){
+        last_id = 0;
+    }else{
+        for(var i = 0; i<data_list.length; i++){
+            last_id = data_list[i].id
+        }
     }
     console.log(last_id)
     last_id += 1;

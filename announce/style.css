@@ -109,6 +109,7 @@ body{
     justify-content: center;
     margin-bottom:20px;
     align-items: center;
+    display: none;
 }
 #pagination > * {
     margin:0px 5px;
@@ -135,6 +136,11 @@ body{
 }
 .important > .title{
     color:red;
+}
+#no_announce{
+    display: none;
+    text-align: center;
+    margin: 80px 0px;   
 }
 @media screen and (max-width : 1000px) {
     .view_box{
