@@ -187,6 +187,9 @@ a:hover{
     display: flex;
     align-items: center;
 }
+.agreement > div{
+    padding:3px 0px;
+}
 @media screen and (max-width : 1000px) {
     #menu{
         border-radius: 0px;
