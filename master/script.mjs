@@ -30,6 +30,7 @@ function uploadFiles() {
     const files = fileInput.files; // 여러 파일 선택
 
     const storage = getStorage();
+    var text = ''
 
     // 여러 파일에 대한 업로드 프로세스
     for (let i = 0; i < files.length; i++) {
@@ -38,7 +39,6 @@ function uploadFiles() {
         const storageRef = ref(storage, key);
         images.push(key);
         console.log(file.name);
-        var text = ''
         // 파일 업로드
         uploadBytes(storageRef, file)
             .then((snapshot) => {
