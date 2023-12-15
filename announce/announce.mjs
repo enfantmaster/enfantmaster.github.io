@@ -73,7 +73,7 @@ function displayData() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentData = filteredData.slice(startIndex, endIndex);
-    console.log(currentData)
+    // console.log(currentData)
 
     while (info_container.firstChild) {
         info_container.removeChild(info_container.firstChild);

@@ -9,7 +9,7 @@ const firebaseConfig = {
     measurementId: "G-R8JVLC43SZ"
 };
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { collection, getDocs, getFirestore, setDoc,doc,updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { collection, getDocs, getFirestore, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 function generateRandomKey(length) {
     const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -25,38 +25,37 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 var last_id;
 const images = []; // 업로드된 이미지 키(파일명) 목록
-function uploadFiles() {
-    const fileInput = document.getElementById('fileInput');
-    const files = fileInput.files; // 여러 파일 선택
-
-    const storage = getStorage();
-    var text = ''
-
-    // 여러 파일에 대한 업로드 프로세스
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
+function uploadFilesSequentially(files, index = 0, text = '') {
+    if (index < files.length) {
+        const file = files[index];
+        const storage = getStorage();
         const key = generateRandomKey(7);
         const storageRef = ref(storage, key);
-        images.push(key);
-        console.log(file.name);
-        // 파일 업로드
+
         uploadBytes(storageRef, file)
             .then((snapshot) => {
-                console.log(`Uploaded file ${i + 1}: ${key}`);
-                if (images.length === files.length) {
-                    // 모든 파일이 업로드되면 추가 작업 수행
-                    text += `${i+1}번째 파일(${file.name})의 업로드가 완료됨.\n` 
-                    document.getElementById('stat').textContent = text;
-                }
+                console.log(`Uploaded file ${index + 1}: ${key}`);
+                text += `${index + 1}번째 파일(${file.name})의 업로드가 완료됨.\n`;
+                document.getElementById('stat').textContent = text;
+
+                uploadFilesSequentially(files, index + 1, text);
             })
             .catch((error) => {
-                console.error(`파일 업로드 오류 (${i + 1}): ${error.message}`);
-            }); 
+                console.error(`파일 업로드 오류 (${index + 1}): ${error.message}`);
+            });
     }
 }
 
+function startUpload() {
+    const fileInput = document.getElementById('fileInput');
+    const files = fileInput.files; // 여러 파일 선택
+
+    uploadFilesSequentially(files);
+}
+
 var user_key
-document.getElementById('go_login').addEventListener("click", async function () {
+var author_name
+function login() {
     var email = document.getElementById('email_value').value;
     var password = document.getElementById('password_value').value;
     const auth = getAuth();
@@ -70,15 +69,27 @@ document.getElementById('go_login').addEventListener("click", async function () 
             user_key = userCredential.user.uid;
             console.log(user_key);
             document.getElementById('afterpage').style = 'display:block;'
-            document.getElementById('login').style='display:none;'
+            document.getElementById('login').style = 'display:none;'
+            if (user_key == 'buZxGSOfSWZklk1p4HfPqVWZO5B3') {
+                author_name = '앙팡리뵈어';
+            }
+            console.log(author_name)
+            document.getElementById('author').textContent = `작성자: ${author_name}`;
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             alert(errorCode, errorMessage)
         });
-
-
+}
+document.getElementById('go_login').addEventListener("click", async function () {
+    login()
+})
+document.getElementById('password_value').addEventListener('keypress', function (event) {
+    const isPasswordInputFocused = (document.activeElement === document.getElementById('password_value'));
+    if (isPasswordInputFocused && event.keyCode === 13) {
+        login()
+    }
 })
 document.getElementById('upload').addEventListener('click', async function () {
     const querySnapshot = await getDocs(collection(db, "announcement"));
@@ -88,13 +99,13 @@ document.getElementById('upload').addEventListener('click', async function () {
         var data = doc.data();
         data_list.push(data)
     });
-    data_list.sort(function(a,b){
+    data_list.sort(function (a, b) {
         return a.id - b.id;
     })
-    if(data_list.length==0){
+    if (data_list.length == 0) {
         last_id = 0;
-    }else{
-        for(var i = 0; i<data_list.length; i++){
+    } else {
+        for (var i = 0; i < data_list.length; i++) {
             last_id = data_list[i].id
         }
     }
@@ -106,19 +117,19 @@ document.getElementById('upload').addEventListener('click', async function () {
     console.log(text);
     var selectedValue = document.querySelector('input[name="important"]:checked').value;
     var importance
-    if(selectedValue == 'true'){
+    if (selectedValue == 'true') {
         importance = true;
-    }else{
+    } else {
         importance = false;
     }
     const lines = text.split('\n');
     console.log(lines); // 줄바꿈을 기준으로 분할된 문자열 배열
-    if(user_key){
+    if (user_key) {
         console.log('인증됨')
         setDoc(doc(db, "announcement", last_id.toString()), {
             id: last_id,
             pressTime: new Date(),
-            author: document.getElementById('author_value').value,
+            author: author_name,
             title: document.getElementById('title_value').value,
             content: lines,
             images: images,
@@ -126,29 +137,29 @@ document.getElementById('upload').addEventListener('click', async function () {
             display: true,
             important: importance
         });
-        setTimeout(function(){
+        setTimeout(function () {
             alert('등록되었습니다.')
-        },2000)
-    }else{
+        }, 2000)
+    } else {
         alert('로그인 필요')
     }
 })
 document.getElementById('img_up').addEventListener("click", function () {
-    uploadFiles()
+    startUpload()
 })
-document.getElementById('go_delete').addEventListener("click", async function(){
+document.getElementById('go_delete').addEventListener("click", async function () {
     var del = confirm(`정말 삭제하시겠습니까?`)
-    if(del){
-        if(user_key){
+    if (del) {
+        if (user_key) {
             var del_id = document.getElementById('delete_val').value;
-            try{
+            try {
                 const view_data = doc(db, 'announcement', del_id);
-                updateDoc(view_data, { display:false });
-            }catch(error){
+                updateDoc(view_data, { display: false });
+            } catch (error) {
                 alert('삭제에 실패했습니다. ID를 다시한번 확인해주세요')
                 console.log(error)
             }
-        }else{
+        } else {
             alert('로그인 필요')
         }
     }

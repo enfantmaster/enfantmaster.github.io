@@ -8,8 +8,8 @@ function getParameterByName(name) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 var id = getParameterByName('id')
-console.log(id);
-if (id == null) {
+// console.log(id);
+if(id==null){
   alert('해당 문서를 찾을 수 없습니다.')
   location.replace('../')
 }
@@ -55,41 +55,41 @@ const docRef = doc(db, "announcement", id);
 const docSnap = await getDoc(docRef);
 var view_num
 if (docSnap.exists()) {
-  console.log(docSnap.data())
+  // console.log(docSnap.data())
   var data = docSnap.data();
   if (data.display == true) {
     document.getElementById('view_box_top_title').textContent = data.title;
     document.getElementById('author_name').textContent = data.author;
     document.getElementById('pressTime').textContent = timestampToDateTime((data.pressTime).seconds);
     view_num = parseInt(data.view);
-    document.getElementById('view').textContent = '조회수: ' + (view_num + 1);
+    document.getElementById('view').textContent = '조회수: ' + (view_num+1);
     const info_container = document.getElementById('view_content_box');
     const divElement = document.createElement('div');
     for (var i = 0; i < (data.content).length; i++) {
       const content = document.createElement('p');
-      const text = data.content[i];
-      const linkRegex = /(https?:\/\/[^\s]+)/g; // 링크를 감지하는 정규 표현식
+  const text = data.content[i];
+  const linkRegex = /(https?:\/\/[^\s]+)/g; // 링크를 감지하는 정규 표현식
 
-      // 링크를 감지하여 <a> 태그로 변환하는 함수
-      function replaceTextWithLinks(text) {
-        return text.replace(linkRegex, '<a href="$1" target="_blank">$1</a>');
-      }
+  // 링크를 감지하여 <a> 태그로 변환하는 함수
+  function replaceTextWithLinks(text) {
+    return text.replace(linkRegex, '<a href="$1" target="_blank">$1</a>');
+  }
 
-      content.innerHTML = replaceTextWithLinks(text); // 링크를 변환한 HTML을 p 태그에 추가
-      divElement.appendChild(content);
+  content.innerHTML = replaceTextWithLinks(text); // 링크를 변환한 HTML을 p 태그에 추가
+  divElement.appendChild(content);
     }
     info_container.append(divElement);
 
 
     const storage = getStorage();
     const imgElement = document.createElement('div')
-    if ((data.images).length != 0) {
+    if((data.images).length != 0){
       for (var i = 0; i < (data.images).length; i++) {
         getDownloadURL(ref(storage, data.images[i]))
           .then((url) => {
             const img = document.createElement('img');
             img.src = url;
-            console.log(url)
+            // console.log(url)
             imgElement.appendChild(img)
           })
           .catch((error) => {
@@ -101,7 +101,7 @@ if (docSnap.exists()) {
     const view_data = doc(db, 'announcement', id);
     updateDoc(view_data, { view: view_num + 1 });
   }
-  else {
+  else{
     document.getElementById('view_box_top_title').textContent = '삭제되었거나 볼 수 없는 게시글입니다.';
   }
 } else {
