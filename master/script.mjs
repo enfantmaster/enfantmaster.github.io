@@ -31,6 +31,7 @@ function uploadFilesSequentially(files, index = 0, text = '') {
         const storage = getStorage();
         const key = generateRandomKey(7);
         const storageRef = ref(storage, key);
+        images.push(key);
 
         uploadBytes(storageRef, file)
             .then((snapshot) => {
