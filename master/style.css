@@ -1,7 +1,7 @@
-#afterpage{
+#afterpage, #cor_post_box_box{
     display: none;
 }
-.write, .delete{
+.write, .correct, .delete{
     border:1px solid black;
     padding:5px;
     margin:10px;
@@ -9,7 +9,15 @@
 h2{
     margin:5px 0px;
 }
-.write textarea{
+.write textarea, #cor_content{
     min-width:50%;
+    width: 90%;
     min-height:100px;
+    max-width: 100%;
+}
+#new_post_box, #cor_post_box, #del_post_box{
+    display:none;
+}
+#new_post:hover, #cor_post:hover, #del_post:hover{
+    cursor: pointer;
 }

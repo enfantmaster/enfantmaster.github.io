@@ -67,35 +67,33 @@ if (docSnap.exists()) {
     const divElement = document.createElement('div');
     for (var i = 0; i < (data.content).length; i++) {
       const content = document.createElement('p');
-  const text = data.content[i];
-  const linkRegex = /(https?:\/\/[^\s]+)/g; // 링크를 감지하는 정규 표현식
+      const text = data.content[i];
+      const linkRegex = /(https?:\/\/[^\s]+)/g; // 링크를 감지하는 정규 표현식
 
-  // 링크를 감지하여 <a> 태그로 변환하는 함수
-  function replaceTextWithLinks(text) {
-    return text.replace(linkRegex, '<a href="$1" target="_blank">$1</a>');
-  }
+      // 링크를 감지하여 <a> 태그로 변환하는 함수
+      function replaceTextWithLinks(text) {
+        return text.replace(linkRegex, '<a href="$1" target="_blank">$1</a>');
+      }
 
-  content.innerHTML = replaceTextWithLinks(text); // 링크를 변환한 HTML을 p 태그에 추가
-  divElement.appendChild(content);
+      content.innerHTML = replaceTextWithLinks(text); // 링크를 변환한 HTML을 p 태그에 추가
+      divElement.appendChild(content);
     }
     info_container.append(divElement);
 
 
     const storage = getStorage();
     const imgElement = document.createElement('div')
-    if((data.images).length != 0){
-      for (var i = 0; i < (data.images).length; i++) {
-        getDownloadURL(ref(storage, data.images[i]))
-          .then((url) => {
-            const img = document.createElement('img');
-            img.src = url;
-            // console.log(url)
-            imgElement.appendChild(img)
-          })
-          .catch((error) => {
-            // Handle any errors
-          });
-        info_container.append(imgElement);
+    if (data.images.length !== 0) {
+      for (let i = 0; i < data.images.length; i++) {
+        try {
+          const url = await getDownloadURL(ref(storage, data.images[i]));
+          const img = document.createElement('img');
+          img.src = url;
+          imgElement.appendChild(img);
+          info_container.append(imgElement);
+        } catch (error) {
+          console.error('이미지 로드 에러:', error);
+        }
       }
     }
     const view_data = doc(db, 'announcement', id);

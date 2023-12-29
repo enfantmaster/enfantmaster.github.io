@@ -14,31 +14,60 @@
     </div>
     <div class="afterpage" id="afterpage">
         <div class="write">
-            <h2>신규 게시글 등록하기</h2>
-            <p id="title">제목: <input type="text" id='title_value'></p>
-            <p id="author">작성자: </p>
-            <form>
-                <fieldset>
-                    <input type="radio" name="important" checked="checked" value='false'>[공지]로 등록하지 않음
-                    <input type="radio" name="important" value='true'>[공지]로 등록하기
-                </fieldset>
-            </form><br>
-            <textarea id="content"></textarea><br>
-            <span>사진 업로드: </span>
-            <input type="file" id="fileInput" multiple>
-            <button id="img_up">Upload</button>
-            <p id="stat" style="white-space:pre-wrap"></p>
+            <h2 id="new_post">신규 게시글 등록하기</h2>
+            <div id="new_post_box">
+                <p id="title">제목: <input type="text" id='title_value'></p>
+                <p id="author">작성자: </p>
+                <form>
+                    <fieldset>
+                        <input type="radio" name="important" checked="checked" value='false'>[공지]로 등록하지 않음
+                        <input type="radio" name="important" value='true'>[공지]로 등록하기
+                    </fieldset>
+                </form><br>
+                <textarea id="content"></textarea><br>
+                <span>사진 업로드: </span>
+                <input type="file" id="fileInput" multiple>
+                <button id="img_up">Upload</button>
+                <p id="stat" style="white-space:pre-wrap"></p>
 
-            <p>※사진 업로드 시, 꼭 Upload 버튼을 누르고 등록 버튼을 눌러주세요!!!</p>
-            <button id="upload">등록</button>
+                <p style="color:red">※사진 업로드 시, 꼭 Upload 버튼을 누르고 등록 버튼을 눌러주세요!!!<br>
+                ※이미 업로드된 사진은 추후에 수정이 불가능합니다!!</p>
+                <button id="upload">등록</button>
+            </div>
         </div>
         <div class="correct">
-            
+            <h2 id="cor_post">기존 게시글 수정하기</h2>
+            <div id="cor_post_box">
+                <div>
+                    <p>수정할 게시글의 ID를 입력하세요: <input type='number' id='cor_val'></p>
+                    <button id="cor_btn">확인</button>
+                    <p>※id는 컴퓨터에선 공지사항 페이지나 게시물 링크에서, 핸드폰은 게시물 링크에서 확인할 수 있습니다.<br>
+                        (링크 예시) https://www.enfant-reveur.co.kr/announcement/view/?<span style='text-decoration: underline;'>id=9</span>)
+                    </p>
+                </div>
+                <div id="cor_post_box_box">
+                    <p id="cor_title">제목: <input type="text" id='cor_title_value'></p>
+                    <p id="cor_author">작성자: </p>
+                    <form>
+                        <fieldset id="fieldset">
+                            <input type="radio" name="cor_important" checked="checked" value='false'>[공지]로 등록하지 않음
+                            <input type="radio" name="cor_important" value='true'>[공지]로 등록하기
+                        </fieldset>
+                    </form><br>
+                    <textarea id="cor_content"></textarea><br>
+                    <button id="go_cor">수정하기</button>
+                </div>
+            </div>
         </div>
         <div class="delete">
-            <h2>게시글 삭제하기</h2>
-            <p>삭제할 게시글의 ID를 입력하세요: <input type='number' id='delete_val'></p>
-            <button id="go_delete">삭제</button>
+            <h2 id="del_post">기존 게시글 삭제하기</h2>
+            <div id="del_post_box">
+                <p>삭제할 게시글의 ID를 입력하세요: <input type='number' id='delete_val'></p>
+                <button id="go_delete">삭제</button>
+                <p>※id는 컴퓨터에선 공지사항 페이지나 게시물 링크에서, 핸드폰은 게시물 링크에서 확인할 수 있습니다.<br>
+                    (링크 예시) https://www.enfant-reveur.co.kr/announcement/view/?<span style='text-decoration: underline;'>id=9</span>)
+                </p>
+            </div>
         </div>
         
     </div>

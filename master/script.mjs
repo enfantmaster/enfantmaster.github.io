@@ -9,7 +9,7 @@ const firebaseConfig = {
     measurementId: "G-R8JVLC43SZ"
 };
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { collection, getDocs, getFirestore, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { collection, getDocs, getFirestore, setDoc,getDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 function generateRandomKey(length) {
     const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -20,6 +20,40 @@ function generateRandomKey(length) {
     }
     return randomKey;
 }
+function show_new_post(){
+    document.getElementById('new_post_box').style = 'display: block;';
+}
+function hide_new_post(){
+    document.getElementById('new_post_box').style = 'display: none;';
+}
+function show_cor_post(){
+    document.getElementById('cor_post_box').style ='display: block;';
+}
+function hide_cor_post(){
+    document.getElementById('cor_post_box').style = 'display: none;';
+}
+function show_del_post(){
+    document.getElementById('del_post_box').style = 'display: block;';
+}
+function hide_del_post(){
+    document.getElementById('del_post_box').style = 'display: none;';
+}
+
+document.getElementById('new_post').addEventListener('click', function(){
+    show_new_post()
+    hide_cor_post()
+    hide_del_post()
+})
+document.getElementById('cor_post').addEventListener('click', function(){
+    hide_new_post()
+    show_cor_post()
+    hide_del_post()
+})
+document.getElementById('del_post').addEventListener('click', function(){
+    hide_new_post()
+    hide_cor_post()
+    show_del_post()
+})
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -35,7 +69,7 @@ function uploadFilesSequentially(files, index = 0, text = '') {
 
         uploadBytes(storageRef, file)
             .then((snapshot) => {
-                console.log(`Uploaded file ${index + 1}: ${key}`);
+                // console.log(`Uploaded file ${index + 1}: ${key}`);
                 text += `${index + 1}번째 파일(${file.name})의 업로드가 완료됨.\n`;
                 document.getElementById('stat').textContent = text;
 
@@ -65,20 +99,20 @@ function login() {
         .then(async (userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user)
+            // console.log(user)
             // ...
             user_key = userCredential.user.uid;
-            console.log(user_key);
+            // console.log(user_key);
             document.getElementById('afterpage').style = 'display:block;'
             document.getElementById('login').style = 'display:none;'
             if (user_key == 'buZxGSOfSWZklk1p4HfPqVWZO5B3') {
                 author_name = '앙팡리뵈어';
             }
-            console.log(author_name)
+            // console.log(author_name)
             document.getElementById('author').textContent = `작성자: ${author_name}`;
         })
         .catch((error) => {
-            const errorCode = error.code;
+            var errorCode = error.code;
             const errorMessage = error.message;
             alert(errorCode, errorMessage)
         });
@@ -110,12 +144,12 @@ document.getElementById('upload').addEventListener('click', async function () {
             last_id = data_list[i].id
         }
     }
-    console.log(last_id)
+    // console.log(last_id)
     last_id += 1;
-    console.log(last_id)
+    // console.log(last_id)
     var text = document.getElementById('content').value;
 
-    console.log(text);
+    // console.log(text);
     var selectedValue = document.querySelector('input[name="important"]:checked').value;
     var importance
     if (selectedValue == 'true') {
@@ -124,7 +158,7 @@ document.getElementById('upload').addEventListener('click', async function () {
         importance = false;
     }
     const lines = text.split('\n');
-    console.log(lines); // 줄바꿈을 기준으로 분할된 문자열 배열
+    // console.log(lines); // 줄바꿈을 기준으로 분할된 문자열 배열
     if (user_key) {
         console.log('인증됨')
         setDoc(doc(db, "announcement", last_id.toString()), {
@@ -163,5 +197,61 @@ document.getElementById('go_delete').addEventListener("click", async function ()
         } else {
             alert('로그인 필요')
         }
+    }
+})
+document.getElementById('cor_btn').addEventListener('click', async function(){
+    var cor_id = document.getElementById('cor_val').value;
+    // console.log(cor_id)
+    const docRef = doc(db, "announcement", cor_id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        // console.log(docSnap.data())
+        var data = docSnap.data();
+        // console.log(data)
+
+        document.getElementById('cor_title_value').value = data.title;
+        const fieldset = document.getElementById('fieldset');
+        const radios = fieldset.querySelectorAll('input[name="cor_important"]');
+        if(data.important == true){
+            radios[1].checked = true
+        }else{
+            radios[0].checked = true
+        }
+        const combinedString = (data.content).join('\n');
+        document.getElementById('cor_content').value = combinedString;
+        document.getElementById('cor_author').textContent = '작성자: '+data.author
+        document.getElementById('cor_post_box_box').style= 'display:block;';
+
+        document.getElementById('go_cor').addEventListener('click', function(){
+            
+            var cor_text = document.getElementById('cor_content').value;
+            var cor_lines = cor_text.split('\n');
+            var cor_selectedValue = document.querySelector('input[name="cor_important"]:checked').value;
+            var cor_importance
+            if (cor_selectedValue == 'true') {
+                cor_importance = true;
+            } else {
+                cor_importance = false;
+            }
+            if (user_key) {
+                console.log('인증됨')
+                setDoc(doc(db, "announcement", cor_id), {
+                    id: cor_id,
+                    pressTime: data.pressTime,
+                    author: data.author,
+                    title: document.getElementById('cor_title_value').value,
+                    content: cor_lines,
+                    images: data.images,
+                    view: data.view,
+                    display: true,
+                    important: cor_importance
+                });
+                setTimeout(function () {
+                    alert('등록되었습니다.')
+                }, 2000)
+            } else {
+                alert('로그인 필요')
+            }
+        })
     }
 })
