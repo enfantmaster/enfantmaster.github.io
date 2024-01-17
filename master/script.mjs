@@ -145,6 +145,8 @@ document.getElementById('upload').addEventListener('click', async function () {
         }
     }
     // console.log(last_id)
+    last_id = parseInt(last_id)
+    console.log(typeof(last_id))
     last_id += 1;
     // console.log(last_id)
     var text = document.getElementById('content').value;
@@ -236,7 +238,7 @@ document.getElementById('cor_btn').addEventListener('click', async function(){
             if (user_key) {
                 console.log('인증됨')
                 setDoc(doc(db, "announcement", cor_id), {
-                    id: cor_id,
+                    id: parseInt(cor_id),
                     pressTime: data.pressTime,
                     author: data.author,
                     title: document.getElementById('cor_title_value').value,

@@ -72,7 +72,7 @@ body{
     align-items: center;
 }
 #author_name{
-    padding-left: 10px;
+    padding-left: 7px;
 }
 #pressTime{
     padding-right: 30px;
@@ -105,11 +105,10 @@ body{
 } 
 
 #pagination{
-    display: flex;
     justify-content: center;
     margin-bottom:20px;
     align-items: center;
-    display: none;
+    /* display: none; */
 }
 #pagination > * {
     margin:0px 5px;
@@ -201,5 +200,8 @@ body{
     }
     .mobile_garo a:hover{
         text-decoration: none;
+    }
+    #view_box_top_title{
+        font-size: 25px;
     }
 }

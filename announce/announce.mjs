@@ -46,7 +46,9 @@ if(data_list.length == 0){
     document.getElementById('no_announce').style='display:block;'
 }
 if(data_list.length >= 10){
-    document.getElementById('pagination').style='display:block;'
+    document.getElementById('pagination').style='display:block; display:flex;'
+}else{
+    document.getElementById('pagination').style = 'display:none;'
 }
 data_list.sort(function (a, b) {
     return a.id - b.id;
