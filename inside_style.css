@@ -48,6 +48,16 @@
 .content_inside div{
     padding:5px 0px;
 }
+.content_inside_img{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+    flex-direction: column;
+    max-width: 100%;
+}
+.content_inside_img img{
+    max-width: 100%;
+}
 .facility_image_box{
     display: flex;
     justify-content: space-around;
@@ -73,6 +83,11 @@
 .intro_content_box h2{
     margin-top:10px;
 }
+.info{
+    color:#7c7c7c;
+    font-size:15px;
+    text-align: center;
+}
 @media screen and (max-width : 900px) {
     .facility_image_box img{
         width:100%;
@@ -81,5 +96,8 @@
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+    }
+    .content_inside_img img{
+        width:100%;
     }
 }

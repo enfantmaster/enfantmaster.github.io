@@ -9,7 +9,7 @@ function getParameterByName(name) {
 }
 var id = getParameterByName('id')
 // console.log(id);
-if(id==null){
+if (id == null) {
   alert('해당 문서를 찾을 수 없습니다.')
   location.replace('../')
 }
@@ -62,7 +62,7 @@ if (docSnap.exists()) {
     document.getElementById('author_name').textContent = data.author;
     document.getElementById('pressTime').textContent = timestampToDateTime((data.pressTime).seconds);
     view_num = parseInt(data.view);
-    document.getElementById('view').textContent = '조회수: ' + (view_num+1);
+    document.getElementById('view').textContent = '조회수: ' + (view_num + 1);
     const info_container = document.getElementById('view_content_box');
     const divElement = document.createElement('div');
     for (var i = 0; i < (data.content).length; i++) {
@@ -99,7 +99,7 @@ if (docSnap.exists()) {
     const view_data = doc(db, 'announcement', id);
     updateDoc(view_data, { view: view_num + 1 });
   }
-  else{
+  else {
     document.getElementById('view_box_top_title').textContent = '삭제되었거나 볼 수 없는 게시글입니다.';
   }
 } else {

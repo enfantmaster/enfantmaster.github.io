@@ -98,6 +98,24 @@
     font-weight: normal;
     color:rgb(126, 126, 126);
 }
+.agreement_exp img{
+    width:50px;
+}
+.logo_box{
+    display: flex;
+    align-items: center;
+    border-top: 1px solid black;
+    padding-top:5px;
+    margin-top: 5px;
+}
+.logo_box h3{
+    padding-left: 5px;
+}
+.agreement_exp{
+    width: 70%;
+    margin: auto;
+    margin-top: 60px;
+}
 @media screen and (max-width : 2500px) {
     .main_container{
         margin: 100px 0px 110px 0px;
