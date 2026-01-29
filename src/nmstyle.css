@@ -1,0 +1,252 @@
+.partTitle {
+    background-color: #7bd1f91a;
+    width: 100% !important;
+    padding: 5rem 0 !important;
+}
+
+.leftImgBox {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.leftImgBox img {
+    width: 55%;
+    height: fit-content;
+    border-radius: 1rem;
+}
+
+.leftImgBox div {
+    width: 40%;
+}
+
+.leftImgBox div h2 {
+    margin-bottom: 1.3rem;
+}
+
+.leftImgBox div p {
+    margin: 0.5rem 0;
+}
+
+.enfantIntro h2 {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: .7rem 0;
+    margin: .8rem 0;
+}
+
+.card3box, .card2box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card3box>* {
+    width: calc(80%/3);
+}
+.card2box>*{
+    width: calc(85%/2);
+    color:black;
+}
+.card1box{
+    display: flex;
+    margin:1.5rem 0;
+    justify-content: center;
+}
+.card1box > *{
+    width: 100%;
+}
+.card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+    transition: .3s;
+    box-shadow: 0 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transition: .3s;
+    transform: translateY(-5px);
+}
+
+.inSectionTitle {
+    margin-bottom: 3rem;
+}
+
+.cardNum {
+    color: #7bd1f933;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.cardTitle {
+    margin: 1rem 0;
+}
+.cardTitleIcon{
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+.cardTag {
+    display: flex;
+    justify-content: center;
+}
+
+.cardTag span {
+    background-color: #7bd1f933;
+    font-size: 0.8rem;
+    padding: 0.1rem 0.5rem;
+    color: #7bd1f9;
+    font-weight: 600;
+    border-radius: 1rem;
+}
+
+.card p {
+    margin-top: 1.5rem;
+}
+
+.partTitle div p {
+    margin-top: 1rem;
+}
+
+.sectionBox {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.paragraph h2 {
+    margin-bottom: 1.5rem;
+}
+
+.paragraph>div {
+    margin: 0.5rem 0;
+}
+
+.paragraph>div>p {
+    margin: 0rem 0;
+}
+
+.gallery {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 1rem 0;
+    /* 위아래 여백 최소화 */
+}
+
+.gallery-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.4s ease;
+    padding: 0 15%;
+    /* ← 미리보기 핵심 */
+}
+
+.gallery-track img {
+    width: 70%;
+    aspect-ratio: 4 / 3;
+    /* 비율 고정 */
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 1rem;
+    opacity: 0.4;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+}
+
+.gallery-track img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 버튼 */
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 1.4rem;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+}
+
+.gallery-btn.prev {
+    left: 5px;
+}
+
+.gallery-btn.next {
+    right: 5px;
+}
+
+/* dots */
+.gallery-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.gallery-dots button {
+    width: 6px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    margin: 0 4px;
+    background: #ccc;
+}
+
+.gallery-dots button.active {
+    background: #333;
+}
+.map_box{
+    display: flex;
+    justify-content: center;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    .gallery-track {
+        padding: 0 8%;
+    }
+
+    .gallery-track img {
+        width: 85%;
+    }
+    .leftImgBox{
+        flex-direction: column;
+        align-items: center;
+    }
+    .leftImgBox img {
+        width: 90%;
+        height: fit-content;
+        border-radius: 1rem;
+    }
+    .leftImgBox div {
+        width: 90%;
+        margin-top: 2rem;
+    }
+    .card3box, .card2box{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card3box>*,.card2box>* {
+        width: 90%;
+        margin-bottom: 1.5rem;
+    }
+    .card1box{
+        margin-top: 0;
+        margin-bottom:1.5rem;
+    }
+    .card1box > * {
+        width: 90%;
+    }
+}

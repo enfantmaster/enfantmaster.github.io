@@ -1,0 +1,65 @@
+{
+    "title" : "footer",
+    "items" : [
+        {
+            "title" : "바로가기",
+            "href" : true,
+            "item" : [
+                {
+                    "text" : "소개",
+                    "type" : "normal",
+                    "link" : "/about/"
+                },{
+                    "text" : "프로그램",
+                    "type" : "normal",
+                    "link" : "/program/"
+                },{
+                    "text" : "시설",
+                    "type" : "normal",
+                    "link" : "/facilities/"
+                },{
+                    "text" : "공지사항",
+                    "type" : "normal",
+                    "link" : "/announce/"
+                },{
+                    "text" : "문의하기",
+                    "type" : "normal",
+                    "link" : "/contact/"
+                },{
+                    "text" : "이메일 무단수집 거부",
+                    "type" : "normal",
+                    "link" : "/emailrefuse/"
+                }
+            ]
+        },{
+            "title" : "운영시간",
+            "href": false,
+            "item" : [
+                {
+                    "text" : "평일: 09:00 - 18:00"
+                },{
+                    "text" : "토/일/공휴일: 휴무"
+                }
+            ]
+        },{
+            "title" : "연락처",
+            "href": true,
+            "item" : [
+                {
+                    "text" : "전화: 02-784-2024",
+                    "type": "tel",
+                    "link" : "02-784-2024"
+                },{
+                    "text" : "메일: enfantmaster@gmail.com",
+                    "type": "email",
+                    "link" : "enfantmaster@gmail.com"
+                },{
+                    "text" : "07343 서울 영등포구 여의대방로68길 15 6층",
+                    "type": "normal",
+                    "target" : "_blank",
+                    "link" : "https://map.naver.com/p/search/앙팡리뵈어학원/"
+                }
+            ]
+        }
+    ]
+}

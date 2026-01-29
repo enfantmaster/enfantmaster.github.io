@@ -1,0 +1,25 @@
+{
+    "title" : "navbar",
+    "items" : [
+        {
+            "title": "소개",
+            "link" : "/about/",
+            "description" : "소개와 설립 철학을 확인하실 수 있습니다."
+        },
+        {
+            "title": "프로그램",
+            "link" : "/program/",
+            "description" : "교육 커리큘럼과 교사 교육에 대해 확인하실 수 있습니다."
+        },
+        {
+            "title": "시설",
+            "link" : "/facilities/",
+            "description" : "앙팡리뵈어의 시설을 확인하실 수 있습니다."
+        },
+        {
+            "title": "공지사항",
+            "link" : "/announce/",
+            "description" : "앙팡리뵈어의 공지사항입니다."
+        }
+    ]
+}

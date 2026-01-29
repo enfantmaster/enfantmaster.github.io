@@ -1,0 +1,181 @@
+.banner {
+    position: relative;
+    width: 100%;
+    height: 500px;              /* ✅ 배너 높이 강제 */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative
+}
+
+/* 슬라이드 트랙 */
+.bannerTrack {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+/* 각 이미지 */
+.bannerTrack img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;          /* ✅ 중앙 기준 crop */
+}
+
+/* 인디케이터 */
+.bannerIndicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.bannerIndicators span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.bannerIndicators span.active {
+    background-color: white;
+    transform: scale(1.3);
+}
+.bannerText {
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: color-mix(in oklab, var(--main-enfant-color) 50%, var(--btn-enfant-color) 50%);
+    z-index: 2;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(5px); /* 사파리 지원 */
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+}
+
+.bannerText h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.bannerText h4{
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+}
+
+.bannerText p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+.mainTitle{
+    background-color: var(--btn-enfant-color);
+    border-radius: 1rem;
+    padding: 2rem 0;
+}
+.sectionTitle{
+    margin-top: 1rem;
+}
+.sectionTitle p{
+    margin-top: 1rem;
+}
+.cardBox{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+.card{
+    width: calc(80% / 3);
+    background-color: white;
+    padding:1rem;
+    border-radius: 10px;
+    transition: .3s;
+    box-shadow: 0 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    color: black;
+}
+.imgBox{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.card p{
+    margin-top: 0.7rem;
+    margin-bottom: 1rem;
+}
+.card:hover{
+    transition: .3s;
+    transform: translateY(-5px);
+}
+.cardLogo{
+    height:3rem;
+}
+.card p {
+    word-wrap: break-word;
+}
+.sns{
+    display:flex;
+    justify-content: center;
+}
+.sns img{
+    height: 2rem;
+}
+.sns a{
+    display: flex;
+    align-items: center;
+    margin:2rem 4rem;
+    color: var(--main-enfant-color);
+}
+.sns > a > span{
+    padding-left: 0.5rem;
+}
+.goContact{
+    background-color: var(--btn-enfant-color);
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+}
+.contactBtn{
+    margin-top:2rem;
+    background-color: var(--main-enfant-color);
+    color:white;
+    font-weight: 600;
+    padding:1rem 3rem;
+    border-radius: 100px;
+    transition: 0.2s;
+}
+.contactBtn:hover{
+    transform: scale(1.03);
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+@media screen and (max-width : 945px) {
+    .bannerText{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 740px) {
+    .cardBox{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width:70%;
+    }
+    .sns{
+        flex-direction: column;
+        align-items: center;
+    }
+}

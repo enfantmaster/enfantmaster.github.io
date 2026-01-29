@@ -1,0 +1,243 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+:root {
+    --main-enfant-color : rgb(18,125,141);
+    --btn-enfant-color: #c0e7e6;
+    --background-enfant-color : #ffefc05b;
+}
+html{
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    line-height: 1.5em;
+    word-break:keep-all;
+}
+body{
+    margin: 0;
+}
+h1, h2, h3, h4, p, a, span{
+    margin:0;
+}
+.body{
+    padding-top : 4rem;
+    
+}
+header{
+    height: 4rem;
+    background-color: rgba(255,255,255,0.7);
+    -webkit-backdrop-filter: blur(10px); /* 사파리 지원 */
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width:100vw;
+    display: flex;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 2px 3px 0 rgba(0, 0, 0, .12);
+    z-index: 1000;
+    justify-content: space-between;
+}
+.headerLogoBox{
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+.headerLogoLeft, .headerLogoRight{
+    height:3rem;
+}
+.headerMenuBar{
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+a{
+    text-decoration: none;
+}
+.headerMenuBarItem{
+    margin: 0 0.5rem;
+    color: black;
+    transition: 0.1s;
+}
+.headerMenuBarItem:hover{
+    color: var(--main-enfant-color);
+    transition: 0.1s;
+}
+.headerAsk{
+    background-color: var(--btn-enfant-color);
+    padding: 0.7rem 1.5rem;
+    border-radius: 2rem;
+    color: black;
+    margin-left: 1rem;
+    transition: 0.2s;
+}
+.headerAsk:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+.headerMenuBar{
+    font-weight: 600;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 1.5rem;
+    transition: 0.1s
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    border-radius: 2px;
+    transition: 0.1s
+}
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    transition: 0.1s
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transition: 0.1s
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    transition: 0.1s
+}
+.enfantBack{
+    background-color: var(--background-enfant-color);
+}
+.enfantColor{
+    color:var(--main-enfant-color);
+}
+footer{
+    padding: 3rem 0;
+    background-color: color-mix(in oklab, var(--btn-enfant-color) 50%, white 50%);
+    border-top: 1px solid #ccc;
+}
+.footerImgBox{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.footerImgBox img{
+    height: 4rem;
+}
+.footerLinkBox{
+    display: flex;
+    justify-content: center;
+}
+.footerLinkItems{
+    width: calc(70% / 3);
+}
+.footerLinkItemsBox{
+    display: flex;
+    flex-direction: column;
+}
+.footerLinkItemsTitle{
+    margin-bottom: 0.7rem;
+}
+.footerLinkItemsBox > * {
+    padding:0.2rem 0;
+    color:black;
+}
+.footerLinkItemsBox > a:hover {
+    color: var(--main-enfant-color)
+}
+.footerInfoBox{
+    display: flex;
+    justify-content: center;
+    margin-top:2rem;
+    flex-wrap: wrap;
+}
+.footerInfoBox p {
+    margin: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+}
+.footerBottom{
+    background-color: var(--main-enfant-color);
+    color:white;
+    margin-top:2rem;
+    padding: 0.5rem 0;
+}
+.center{
+    text-align: center;
+}
+.main{
+    padding-bottom: 5rem;
+}
+.main section{
+    padding: 5rem 0 0;
+    width: 50rem;
+    margin: auto;
+}
+.insideLink{
+    display: flex;
+    margin-top:2rem;
+    justify-content: center;
+}
+.insideLink a{
+    background-color: var(--btn-enfant-color);
+    padding:1rem 2.5rem;
+    border-radius: 2rem;
+    color: black;
+    font-weight: 600;
+    transition: .3s;
+}
+.insideLink a:hover{
+    transform: scale(1.03);
+    transition: .3s;
+}
+@media screen and (max-width : 620px) {
+    .headerMenuBar {
+        position: absolute;
+        top: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100vw;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding-top:1rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        border-top: 1px solid #ccc;
+    }
+
+    .headerMenuBar.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: flex;
+    }
+
+    .headerMenuBarItem {
+        margin: 0.5rem 1rem;
+    }
+
+    .headerAsk {
+        width: 70%;
+        text-align: center;
+        margin:auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+        justify-content: center;
+    }
+    .footerLinkBox{
+        flex-direction: column;
+    }
+    .footerLinkItems{
+        width:70%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 55rem) {
+    .main section{
+        width: 90%;
+    }
+}
