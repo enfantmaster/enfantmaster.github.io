@@ -147,6 +147,7 @@
 .gallery-viewport {
     width: 100%;
     overflow: hidden;
+    margin-top: 1rem;
 }
 
 /* 트랙 */
