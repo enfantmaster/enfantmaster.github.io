@@ -4,16 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initGallery(gallery) {
     const track = gallery.querySelector(".gallery-track");
-    const images = [...track.querySelectorAll("img")];
+    const slides = [...gallery.querySelectorAll(".slide")];
     const prev = gallery.querySelector(".prev");
     const next = gallery.querySelector(".next");
     const dotsWrap = gallery.querySelector(".gallery-dots");
 
     let index = 0;
-    const total = images.length;
+    const total = slides.length;
 
-    // dots
-    images.forEach((_, i) => {
+    // dots 생성
+    slides.forEach((_, i) => {
         const dot = document.createElement("button");
         dot.addEventListener("click", () => goTo(i));
         dotsWrap.appendChild(dot);
@@ -22,22 +22,18 @@ function initGallery(gallery) {
     const dots = [...dotsWrap.children];
 
     function update() {
-        images.forEach((img, i) => {
-            img.classList.toggle("active", i === index);
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
         });
 
         dots.forEach((dot, i) => {
             dot.classList.toggle("active", i === index);
         });
 
-        const img = images[0];
-        const imgWidth = img.getBoundingClientRect().width;
+        const slideWidth = slides[0].offsetWidth;
+        const gap = parseFloat(getComputedStyle(track).gap || 0);
 
-        const style = getComputedStyle(track);
-        const gap = parseFloat(style.columnGap || style.gap || 0);
-
-        const moveX = index * (imgWidth + gap);
-
+        const moveX = index * (slideWidth + gap);
         track.style.transform = `translateX(-${moveX}px)`;
     }
 
@@ -49,7 +45,7 @@ function initGallery(gallery) {
     prev.addEventListener("click", () => goTo(index - 1));
     next.addEventListener("click", () => goTo(index + 1));
 
-    // 모바일 스와이프
+    // 📱 모바일 스와이프
     let startX = 0;
 
     track.addEventListener("touchstart", e => {

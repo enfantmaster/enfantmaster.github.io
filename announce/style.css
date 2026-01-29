@@ -198,8 +198,4 @@
     #view_box_top_title{
         font-size: 25px;
     }
-}@media screen and (max-width: 55rem) {
-    .main section {
-        width: 95% !important;
-    }
 }
